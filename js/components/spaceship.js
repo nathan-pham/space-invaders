@@ -1,11 +1,17 @@
-import { vec2 } from "../libs/vector.js"
+import { vec2, constrain } from "../libs/math.js"
+
+const size = 32
+const speed = 2
 
 const spaceship = (sprite, dimensions) => {
-    const size = 64
-    const position = vec2(dimensions.width / 2 - size / 2, dimensions.height - size - 10)
+    let position = vec2(dimensions.width / 2 - size / 2, dimensions.height - size - 20)
 
-    const update = () => {
-
+    const update = (state) => {
+        if(state.keys["right"]?.includes("pressed")) {
+            position.x = constrain(position.x + speed, 0, dimensions.width - size)
+        } else if(state.keys["left"]?.includes("pressed")) {
+            position.x = constrain(position.x - speed, 0, dimensions.width - size)
+        }
     }
     
     const render = (ctx) => {
@@ -13,6 +19,7 @@ const spaceship = (sprite, dimensions) => {
     }
     
     return {
+        type: "spaceship",
         zIndex: 0,
         update,
         render

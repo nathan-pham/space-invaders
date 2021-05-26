@@ -2,8 +2,8 @@ import canvas from "./libs/canvas.js"
 import spaceship from "./components/spaceship.js"
 
 const dimensions = {
-    width: 400,
-    height: 600
+    width: 300,
+    height: 500
 }
 
 const init = (async () => {
@@ -18,7 +18,6 @@ const init = (async () => {
 
     const spaceshipPath = "imgs/red-spaceship.png"
     const assets = await app.load(spaceshipPath)
-
 
     const player = spaceship(assets[spaceshipPath], dimensions)
 
