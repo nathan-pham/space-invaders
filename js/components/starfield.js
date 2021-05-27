@@ -1,14 +1,5 @@
 import config from "../config.js"
 import { random, map } from "../libs/math.js"
-/*
-star = {
-    x: random(0, width),
-    y: 0 - radius,
-    radius: random(1, 5),
-    speed: 1 / radius * 5,
-    color: random(0, 1)
-}
-*/
 
 const createStar = (genesis) => {
     const radius = random(1, 4)

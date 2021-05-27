@@ -9,7 +9,7 @@ const bulletSpeed = 4
 
 const spaceship = (sprite) => {
     const { dimensions } = config
-    const bullets = []
+    let bullets = []
 
     let reloadTimer
 
@@ -22,15 +22,23 @@ const spaceship = (sprite) => {
             position.x = constrain(position.x - speed, 0, dimensions.width - size)
         }
 
-        if(state.keys["space"] == "pressed" && !reloadTimer) {
+        if(state.keys["space"]?.includes("pressed") && !reloadTimer) {
             bullets.push({ x: position.x + sprite.width / 2 - 2, y: position.y })
             reloadTimer = setTimeout(() => {
                 reloadTimer = null
             }, 1000 * reloadSpeed)
         }
 
-        for(const bullet of bullets) {
+        for(let i = 0; i < bullets.length; i++) {
+            const bullet = bullets[i]
+
             bullet.y -= bulletSpeed
+            if(bullet.y < -10) {
+                bullets.splice(i, 1)
+            }
+        }
+
+        for(const bullet of bullets) {
         }
     }
     
