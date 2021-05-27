@@ -37,9 +37,6 @@ const spaceship = (sprite) => {
                 bullets.splice(i, 1)
             }
         }
-
-        for(const bullet of bullets) {
-        }
     }
     
     const render = (ctx) => {
@@ -54,6 +51,7 @@ const spaceship = (sprite) => {
     return {
         type: "spaceship",
         zIndex: 1,
+        bullets,
         update,
         render
     }
