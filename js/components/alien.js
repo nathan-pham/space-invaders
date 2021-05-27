@@ -34,6 +34,10 @@ const alien = (sprite) => {
         } else {
             reset()
         }
+
+        if(position.y > dimensions.height + sprite.height) {
+            reset()
+        }
     }
 
     const render = (ctx) => {

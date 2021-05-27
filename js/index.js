@@ -11,8 +11,8 @@ const dimensions = {
 
 const init = (async () => {
     const app = canvas(config)
-    app.resize()
     app.pixelated()
+    app.resize()
 
     const spaceshipPath = "imgs/red-spaceship.png"
     const alienPath = "imgs/yellow-alien.png"
