@@ -16,11 +16,15 @@ const init = (async () => {
 
     const spaceshipPath = "imgs/red-spaceship.png"
     const alienPath = "imgs/yellow-alien.png"
+    const bulletPath = "imgs/bullet.png"
 
-    const assets = await app.load(spaceshipPath, alienPath)
+    const assets = await app.load(spaceshipPath, alienPath, bulletPath)
 
-    app.add(spaceship(assets[spaceshipPath], dimensions))
-    app.add(alien(assets[alienPath], dimensions))
+    app.add(spaceship(assets[spaceshipPath], assets[bulletPath]))
+    app.add(alien(assets[alienPath]))
+    app.add(alien(assets[alienPath]))
+    app.add(alien(assets[alienPath]))
+
     app.add(starfield(100))
     app.start()
 })()
