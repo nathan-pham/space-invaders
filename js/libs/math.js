@@ -14,12 +14,19 @@ export const vec2 = (x, y) => {
     }
 }
 
-export const constrain = (n, a, b) => {
-    if(n < a) {
-        return a
-    } else if(n > b) {
-        return b
-    }
+export const map = (n, inMin, inMax, outMin, outMax) => (
+    (n - inMin) * (outMax - outMin) / (inMax - inMin) + outMin
+)
 
-    return n
-}
+
+export const random = (min, max) => (
+    Math.random() * (max - min) + min
+)
+
+export const constrain = (n, min, max) => (
+    n < min
+        ? min
+        : n > max
+            ? max
+            : n
+)
